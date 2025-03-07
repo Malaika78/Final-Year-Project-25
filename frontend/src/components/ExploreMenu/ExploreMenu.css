@@ -1,0 +1,81 @@
+.explore-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.explore-menu h1 {
+  color: #262626;
+  font-weight: 500;
+}
+
+.explore-menu-text {
+  max-width: 60%;
+  color: #808080;
+}
+
+.explore-menu-list {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0px;
+  overflow: scroll;
+  padding: 20px 10px;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-menu-list-item .image-wrapper {
+  max-width: 250px;
+  margin: 0 auto 15px;
+}
+.image-wrapper img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.explore-menu hr {
+  margin: 10px 0px;
+  height: 2px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.explore-menu-list-item {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  max-width: 250px;
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #747474;
+  cursor: pointer;
+  min-height: 268px;
+}
+.explore-menu-list-item strong {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 10px;
+  color: #262626;
+}
+.two-line-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds "..." at the end */
+}
+
+@media (max-width: 1050px) {
+  .explore-menu-text {
+    max-width: 100%;
+    font-size: 14px;
+  }
+}
