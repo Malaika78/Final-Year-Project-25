@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Navigate } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -13,7 +14,9 @@ const Header = () => {
           With real-time tracking, multiple payment options, and exclusive deals,
            we make food delivery fast, easy, and reliable!
         </p>
-        <button>View Menu</button>
+    
+
+{/* <button onClick={Navigate('')}>View Menu</button> */}
       </div>
     </div>
   );

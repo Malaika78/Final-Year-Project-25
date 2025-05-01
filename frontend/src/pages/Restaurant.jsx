@@ -13,7 +13,7 @@ const SingleRestaurant = () => {
   useEffect(() => {
     getRestaurant();
   }, [id]);
-  console.log(data);
+
   return (
     <StyledRestuarantPage $image={data?.image}>
       <div className="image-wrap">
@@ -23,14 +23,17 @@ const SingleRestaurant = () => {
           Total Menus {data?.menuItems?.length} in Restaurant
         </span>
       </div>
-      <div className="menu-wraper">
+      <div className="menu-wraper">  
         {data?.menuItems?.map((elem, ind) => (
           <div className="menu-col" key={ind}>
             {elem?.name}
-          </div>
+          </div>   //tabs
+
         ))}
       </div>
-      {console.log(data?.menuItems)}
+      
+     
+     {/* Menu Items */}
       <div className="food-display-list">
         {data?.menuItems?.map((item) => {
           return item?.items?.map((elem, ind) => (

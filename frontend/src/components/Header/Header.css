@@ -2,7 +2,7 @@
   height: 34vw;
   margin: 30px auto;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/header_img.png") no-repeat;
+    url("/public/header_img.jpg") no-repeat;
   background-size: cover;
   position: relative;
   border-radius: 30px;
@@ -15,7 +15,7 @@
   align-items: start;
   gap: 1.5vw;
   max-width: 50%;
-  bottom: 10%;
+  bottom: 25%;
   left: 6vw;
   animation: fadeIn 3s;
 }

@@ -15,6 +15,7 @@ import SingleRestaurant from "./pages/Restaurant";
 import { io } from "socket.io-client";
 import { StoreContext } from "./components/context/StoreContext";
 const SOCKET_SERVER_URL = "http://localhost:4000";
+
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
   const { token } = useContext(StoreContext);
