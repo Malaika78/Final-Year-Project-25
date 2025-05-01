@@ -3,17 +3,25 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { StyledRestuarantPage } from "../components/RestuarantPage.styles";
 import FoodItem from "../components/FoodItem/FoodItem";
+import FeedbackSection from "../components/Feedback/FeedbackSection";
+
 const SingleRestaurant = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
-  async function getRestaurant() {
-    const resp = await axios.get(`http://localhost:4000/api/restaurant/${id}`);
-    setData(resp.data.data);
-  }
+  const [selectedMenuIndex, setSelectedMenuIndex] = useState(0); // default to first category
+
   useEffect(() => {
+    async function getRestaurant() {
+      const resp = await axios.get(
+        `http://localhost:4000/api/restaurant/${id}`
+      );
+      setData(resp.data.data);
+    }
     getRestaurant();
   }, [id]);
-  console.log(data);
+
+  const selectedMenu = data?.menuItems?.[selectedMenuIndex];
+
   return (
     <StyledRestuarantPage $image={data?.image}>
       <div className="image-wrap">
@@ -23,28 +31,42 @@ const SingleRestaurant = () => {
           Total Menus {data?.menuItems?.length} in Restaurant
         </span>
       </div>
+
       <div className="menu-wraper">
-        {data?.menuItems?.map((elem, ind) => (
-          <div className="menu-col" key={ind}>
-            {elem?.name}
+        {data?.menuItems?.map((menu, index) => (
+          <div
+            className={`menu-col ${
+              index === selectedMenuIndex ? "active" : ""
+            }`}
+            key={index}
+            onClick={() => setSelectedMenuIndex(index)}
+            style={{
+              cursor: "pointer",
+              fontWeight: index === selectedMenuIndex ? "bold" : "normal",
+            }}
+          >
+            {menu?.name}
           </div>
         ))}
       </div>
-      {console.log(data?.menuItems)}
+
       <div className="food-display-list">
-        {data?.menuItems?.map((item) => {
-          return item?.items?.map((elem, ind) => (
+        {selectedMenu?.items?.length > 0 ? (
+          selectedMenu.items.map((item, ind) => (
             <FoodItem
               key={ind}
-              id={elem._id}
-              name={elem.name}
-              description={elem.description}
-              price={elem.price}
-              image={elem.image}
+              id={item._id}
+              name={item.name}
+              description={item.description}
+              price={item.price}
+              image={item.image}
             />
-          ));
-        })}
+          ))
+        ) : (
+          <p>No food items in this category.</p>
+        )}
       </div>
+      <FeedbackSection restaurantId={id} />
     </StyledRestuarantPage>
   );
 };

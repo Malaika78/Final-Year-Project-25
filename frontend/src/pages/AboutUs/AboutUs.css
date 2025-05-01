@@ -1,0 +1,78 @@
+.aboutus-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.aboutus-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.aboutus-header h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  color: #333;
+}
+
+.aboutus-content {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.aboutus-content h2 {
+  font-size: 2rem;
+  margin-top: 20px;
+  color: tomato;
+}
+
+.aboutus-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.aboutus-values {
+  list-style-type: none;
+  padding: 0;
+}
+
+.aboutus-values li {
+  background-color: #f7f7f7;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.aboutus-values li:hover {
+  background-color: #e1e1e1;
+}
+
+.aboutus-content strong {
+  color: tomato;
+}
+
+@media (max-width: 768px) {
+  .aboutus-container {
+    padding: 20px;
+  }
+
+  .aboutus-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .aboutus-content {
+    padding: 15px;
+  }
+
+  .aboutus-content h2 {
+    font-size: 1.8rem;
+  }
+}

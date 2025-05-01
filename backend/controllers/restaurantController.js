@@ -25,13 +25,20 @@ const getRestaurants = async (req, res) => {
 };
 const getsingleRestaurant = async (req, res) => {
   const { id } = req.params;
+  console.log(id, "id");
+
   try {
     const data = await restaurantModel.findById(id).populate({
       path: "menuItems", // populate blogs
       populate: {
-        path: "items", // in blogs, populate comments
+        path: "items",
+        model: "food", // in blogs, populate comments
       },
     });
+    console.log(data, "data");
+    if (!data) {
+      return res.json({ success: false, message: "Restaurant not found" });
+    }
     res.json({ success: true, data });
   } catch (error) {
     res.json({ success: true, message: error });

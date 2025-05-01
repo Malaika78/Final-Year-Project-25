@@ -14,6 +14,9 @@ import SingleRestaurant from "./pages/Restaurant";
 
 import { io } from "socket.io-client";
 import { StoreContext } from "./components/context/StoreContext";
+import SearchScreen from "./pages/search/SearchScreen";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import AboutUs from "./pages/AboutUs/AboutUs";
 const SOCKET_SERVER_URL = "http://localhost:4000";
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -55,6 +58,9 @@ const App = () => {
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/restaurant/:id" element={<SingleRestaurant />} />
+          <Route path="/search" element={<SearchScreen />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
         </Routes>
       </div>
       <Footer />
